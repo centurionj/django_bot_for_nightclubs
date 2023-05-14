@@ -60,4 +60,7 @@ class Order(models.Model):
 @receiver(pre_delete, sender=Perfomace)
 def delete_file(sender, instance, **kwargs):
     if instance.preview:
-        os.remove(instance.preview.path)
+        try:
+            os.remove(instance.preview.path)
+        except:
+            pass

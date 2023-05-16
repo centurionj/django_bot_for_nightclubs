@@ -12,13 +12,16 @@ bot = TeleBot(token=settings.TOKEN)
 def send_info_of_day(id:int, message):
     perfomance = Perfomace.objects.filter(which_day_of_weak=id)
     for per in perfomance:
-        media = per.preview.file
         s = f"\n{per.title}\n\n"
-
-        if Path(f'{media}').suffix.lower() == '.mp4' or Path(f'{media}').suffix == '.mov':
-            bot.send_document(message.chat.id, media, caption=s)
-        else:
-            bot.send_photo(message.chat.id, media, caption=s)
+        try:
+            media = per.preview.file
+            if Path(f'{media}').suffix.lower() == '.mp4' or Path(f'{media}').suffix == '.mov':
+                bot.send_document(message.chat.id, media, caption=s)
+            else:
+                bot.send_photo(message.chat.id, media, caption=s)
+        except Exception as e:
+            print(e)
+            bot.send_message(message.chat.id, s)
 
 def make_order():
     clubs = Club.objects.filter(qr_code=False)
@@ -50,8 +53,8 @@ def make_order():
             try:
                 if len(str(cell.value)) > max_len:
                     max_len = len(cell.value)
-            except:
-                pass
+            except Exception as e:
+                print(e)
             adjusted_width = (max_len + 2) * 1.2
             ws.column_dimensions[column].width = adjusted_width
 

@@ -18,7 +18,7 @@ class Day(models.Model):
         ordering = ['id']
 
 class Perfomace(models.Model):
-    preview = models.FileField('Превью', default='Превью')
+    preview = models.FileField('Превью', default='Превью', null=True)
     title = models.TextField('Описание', default='Описание')
     date = models.DateTimeField('Дата мероприятия')
     club = models.ForeignKey('Club', on_delete=models.PROTECT)

@@ -127,5 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Настройки бота
 
-#TOKEN = '6123263886:AAFXdqCKHSuvh1hSBU4yyAQt7HY63EIZQdQ' # test
-TOKEN = '6044475960:AAHlC_KN4iG77cEC4UYSR-WfvkTUhMPlqhg' #real bot
+TOKEN = '6123263886:AAFXdqCKHSuvh1hSBU4yyAQt7HY63EIZQdQ' # test
+#TOKEN = '6044475960:AAHlC_KN4iG77cEC4UYSR-WfvkTUhMPlqhg' #real bot

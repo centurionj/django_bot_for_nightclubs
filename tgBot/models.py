@@ -24,9 +24,6 @@ class Perfomace(models.Model):
     club = models.ForeignKey('Club', on_delete=models.PROTECT)
     which_day_of_weak = models.ForeignKey(Day, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         verbose_name = 'Мероприятие'
         verbose_name_plural = 'Мероприятия'

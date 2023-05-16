@@ -9,6 +9,7 @@ from .models import Day, Perfomace, Order, Club
 class PerfomaceAdmin(admin.ModelAdmin):
     list_display = ('title', 'club', 'date', 'which_day_of_weak')
 
+
 class ClubAdmin(admin.ModelAdmin):
     list_display = ('name', 'qr_code')
 

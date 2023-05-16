@@ -174,8 +174,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         bot.polling(non_stop=True, interval=1)
-        # while True:
-        #     try:
-        #         bot.polling(non_stop=True, interval=1)
-        #     except Exception as e:
-        #         print('Ошибка: ', e)
+        while True:
+            try:
+                bot.polling(non_stop=True, interval=1)
+            except Exception as e:
+                print('Ошибка: ', e)

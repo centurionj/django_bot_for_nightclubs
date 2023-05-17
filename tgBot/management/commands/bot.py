@@ -175,10 +175,11 @@ def bot_massage(message):
 class Command(BaseCommand):
     help = 'Тусовка бот'
 
-    def handle(self, *args, **options):
-        bot.polling(non_stop=True, interval=1)
-        while True:
-            try:
-                bot.polling(non_stop=True, interval=1)
-            except Exception as e:
-                print('Ошибка: ', e)
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except:
+            print('bolt')
+            logging.error('error: {}'.format(sys.exc_info()[0]))
+
+
